@@ -383,6 +383,9 @@ function renderStats() {
   totalItem.textContent = `전체 일기: ${stats.total}개`;
   statsContainer.appendChild(totalItem);
 
+  const grid = document.createElement("div");
+  grid.className = "stats-grid";
+
   for (const mood in stats.moods) {
     const count = stats.moods[mood];
 
@@ -390,8 +393,10 @@ function renderStats() {
     moodItem.className = "stat-item";
     moodItem.textContent = `${MOOD_EMOJIS[mood]} ${mood}: ${count}개`;
 
-    statsContainer.appendChild(moodItem);
+    grid.appendChild(moodItem);
   }
+
+  statsContainer.appendChild(grid);
 }
 
 // ============================================
